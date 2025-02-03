@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap");
+
+:root {
+    --background-light: hsl(210, 20%, 98%);
+    --background-dark: hsl(210, 15%, 90%);
+    --primary-color: hsl(195, 70%, 45%);
+    --primary-color-dark: hsl(195, 70%, 35%);
+    --text-color: hsl(220, 15%, 20%);
+    --text-color-light: hsl(220, 15%, 40%);
+    --accent-cold: hsl(210, 70%, 60%);
+    --accent-warm: hsl(10, 80%, 60%);
+    --shadow: 0 10px 25px hsla(220, 15%, 20%, 0.1);
+    --shadow-hover: 0 15px 30px hsla(220, 15%, 20%, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Fira Sans", sans-serif;
+    background: linear-gradient(#131720, #212736);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.weatherForm {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.cityInput {
+    font-family: "Fira Sans", sans-serif;
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px solid hsla(220, 15%, 40%, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.cityInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px hsla(195, 70%, 45%, 0.2);
+}
+
+button[type="submit"] {
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Fira Sans", sans-serif;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card {
+    background: linear-gradient(135deg, var(--background-light), var(--background-dark));
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem); /* Fluid typography */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.cityDisplay {
+    font-family: "Fira Sans", sans-serif;
+    font-size: clamp(2rem, 6vw, 2.8rem); /* Fluid typography */
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.tempDisplay {
+    font-size: clamp(2.5rem, 7vw, 3rem); /* Fluid typography */
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.cold {
+    color: var(--accent-cold);
+}
+
+.warm {
+    color: var(--accent-warm);
+}
+
+.humidityDisplay,
+.descDisplay {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--text-color-light);
+    font-family: "Fira Sans", sans-serif;
+}
+
+.descDisplay {
+    font-style: italic;
+    font-size: clamp(1.5rem, 4vw, 1.8rem); /* Fluid typography */
+}
+
+.weatherEmoji {
+    font-size: clamp(4rem, 10vw, 6rem); /* Fluid typography */
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.errorDisplay {
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Fluid typography */
+    font-weight: 700;
+    color: var(--accent-warm);
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .weatherForm {
+        flex-direction: column;
+    }
+
+    .cityInput, 
+    button[type="submit"] {
+        width: 100%;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+}
