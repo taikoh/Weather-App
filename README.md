@@ -46,7 +46,7 @@ A simple and elegant weather application that fetches real-time weather data for
 2. Add Your API Key:
 
 - Open the weather.js file.
-- Replace "ee18151a7b662cc5033be58f6f4ff24c" with your OpenWeatherMap API key:
+- Replace "YOUR_API_KEY_HERE" with your OpenWeatherMap API key:
 
     ```javascript
     const apiKey = "YOUR_API_KEY_HERE";
